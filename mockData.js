@@ -1,0 +1,560 @@
+// mockData.js
+
+const FORMATIONS = {
+    "4-3-3": { name: "4-3-3 Ofensivo", slots: ["GK", "LE", "ZAG", "ZAG", "LD", "MC", "VOL", "MC", "PTE", "ATA", "PTD"] },
+    "4-4-2": { name: "4-4-2 Clássico", slots: ["GK", "LE", "ZAG", "ZAG", "LD", "ME", "MC", "MC", "MD", "ATA", "ATA"] },
+    "3-5-2": { name: "3-5-2 Dominante", slots: ["GK", "ZAG", "ZAG", "ZAG", "VOL", "VOL", "ME", "MC", "MD", "ATA", "ATA"] },
+    "5-4-1": { name: "5-4-1 Retranca", slots: ["GK", "LE", "ZAG", "ZAG", "ZAG", "LD", "ME", "VOL", "VOL", "MD", "ATA"] },
+    "4-2-4": { name: "4-2-4 Vintage", slots: ["GK", "LE", "ZAG", "ZAG", "LD", "VOL", "MC", "PTE", "ATA", "ATA", "PTD"] },
+    "3-4-3": { name: "3-4-3 Setas", slots: ["GK", "ZAG", "ZAG", "ZAG", "ME", "MC", "MC", "MD", "PTE", "ATA", "PTD"] },
+    "4-5-1": { name: "4-5-1 Paredão", slots: ["GK", "LE", "ZAG", "ZAG", "LD", "VOL", "MC", "MC", "PTE", "PTD", "ATA"] },
+    "3-3-3-1": { name: "3-3-3-1 Loco Bielsa", slots: ["GK", "ZAG", "ZAG", "ZAG", "VOL", "VOL", "VOL", "ME", "MC", "MD", "ATA"] },
+    "2-3-5": { name: "2-3-5 Pirâmide", slots: ["GK", "ZAG", "ZAG", "MC", "MC", "MC", "PTE", "SA", "ATA", "SA", "PTD"] },
+    "1-1-8": { name: "1-1-8 Kamikaze", slots: ["GK", "ZAG", "VOL", "PTE", "PTE", "SA", "ATA", "ATA", "SA", "PTD", "PTD"] }
+};
+
+const TEAMS_DATABASE = [
+    // --- NÍVEL 1: CLUBES AMADORES / BASE ---
+    {
+        name: "Internet F.C", flag: "📱", tier: 1,
+        players: [
+            { name: "Mc Livinho", role: "PL", pitchPos: ["ATA", "SA"], ovr: 80 },
+            { name: "Negrete", role: "PTE", pitchPos: ["PTE", "ME", "ATA"], ovr: 75 },
+            { name: "Ezequiel 'Rei do Drible'", role: "MC", pitchPos: ["MC", "SA"], ovr: 74 },
+            { name: "Luva de Pedreiro", role: "PTD", pitchPos: ["PTD", "ATA"], ovr: 70 },
+            { name: "Fred Desimpedidos", role: "ZAG/VOL", pitchPos: ["ZAG", "VOL", "MC"], ovr: 76 },
+            { name: "Toguro", role: "ZAG", pitchPos: ["ZAG"], ovr: 65 },
+            { name: "Júlio Cocielo", role: "LE", pitchPos: ["LE", "ME"], ovr: 62 },
+            { name: "Enaldinho", role: "LD", pitchPos: ["LD", "MD"], ovr: 61 },
+            { name: "Cazé", role: "VOL", pitchPos: ["VOL"], ovr: 50 },
+            { name: "Jon Vlogs", role: "GOL", pitchPos: ["GK"], ovr: 58 }
+        ]
+    },
+    {
+        name: "Mirassol Low Profile", flag: "🦁", tier: 1,
+        players: [
+            { name: "Dellatorre", role: "ATA", pitchPos: ["ATA"], ovr: 81 },
+            { name: "Alex Muralha", role: "GOL", pitchPos: ["GK"], ovr: 80 },
+            { name: "Danielzinho", role: "MC", pitchPos: ["MC", "SA"], ovr: 80 },
+            { name: "Neto Moura", role: "VOL", pitchPos: ["VOL", "MC"], ovr: 79 },
+            { name: "João Victor", role: "ZAG", pitchPos: ["ZAG"], ovr: 79 },
+            { name: "Zeca", role: "LE", pitchPos: ["LE", "LD"], ovr: 79 },
+            { name: "Negueba", role: "PTD", pitchPos: ["PTD", "MD"], ovr: 79 },
+            { name: "Fernandinho", role: "PTE", pitchPos: ["PTE", "ME"], ovr: 79 },
+            { name: "Luiz Otávio", role: "ZAG", pitchPos: ["ZAG"], ovr: 78 },
+            { name: "Gabriel", role: "VOL", pitchPos: ["VOL", "MC"], ovr: 78 },
+            { name: "Lucas Ramon", role: "LD", pitchPos: ["LD"], ovr: 77 },
+            { name: "Chico Kim", role: "MC/SA", pitchPos: ["MC", "SA"], ovr: 77 },
+            { name: "Léo Gamalho", role: "ATA", pitchPos: ["ATA"], ovr: 76 }
+        ]
+    },
+    {
+        name: "Raimon (Inicial)", flag: "⚡", tier: 1,
+        players: [
+            { name: "Endou Mamoru", role: "GOL", pitchPos: ["GK"], ovr: 86 },
+            { name: "Gouenji Shuuya", role: "PL", pitchPos: ["ATA"], ovr: 85 },
+            { name: "Kidou Yuuto", role: "MC", pitchPos: ["MC", "SA"], ovr: 86 },
+            { name: "Kazemaru Ichirouta", role: "LE", pitchPos: ["LE", "ME", "PTE"], ovr: 81 },
+            { name: "Someoka Ryuugo", role: "SA", pitchPos: ["SA", "ATA"], ovr: 77 },
+            { name: "Ichinose Kazuya", role: "MC", pitchPos: ["MC"], ovr: 82 },
+            { name: "Domon Asuka", role: "ZAG", pitchPos: ["ZAG", "VOL"], ovr: 76 },
+            { name: "Kabeyama Heigorou", role: "ZAG", pitchPos: ["ZAG"], ovr: 76 },
+            { name: "Matsuno Kuusuke", role: "ME/MD", pitchPos: ["ME", "MD", "MC"], ovr: 74 },
+            { name: "Handa Shinichi", role: "MC", pitchPos: ["MC", "VOL"], ovr: 72 },
+            { name: "Shido Hikaru", role: "LD", pitchPos: ["LD", "ZAG"], ovr: 71 },
+            { name: "Kageno Jin", role: "ZAG", pitchPos: ["ZAG"], ovr: 70 },
+            { name: "Megane Kakeru", role: "SA", pitchPos: ["SA", "ATA"], ovr: 55 },
+            { name: "Kurimatsu Teppei", role: "LD/MD", pitchPos: ["LD", "MD"], ovr: 69 },
+            { name: "Shourinji Ayumu", role: "VOL", pitchPos: ["VOL", "MC"], ovr: 68 },
+            { name: "Shishido Sakichi", role: "MC", pitchPos: ["MC"], ovr: 67 }
+        ]
+    },
+    {
+        name: "Vasco de Diniz", flag: "💢", tier: 1,
+        players: [
+            { name: "Léo Jardim", role: "GOL", pitchPos: ["GK"], ovr: 84 },
+            { name: "Payet", role: "MC", pitchPos: ["MC", "SA"], ovr: 82 },
+            { name: "Pablo Vegetti", role: "ATA", pitchPos: ["ATA"], ovr: 82 },
+            { name: "João Victor", role: "ZAG", pitchPos: ["ZAG"], ovr: 79 },
+            { name: "Lucas Piton", role: "LE", pitchPos: ["LE", "ME"], ovr: 79 },
+            { name: "Paulo Henrique", role: "LD", pitchPos: ["LD", "MD"], ovr: 76 },
+            { name: "Hugo Moura", role: "VOL", pitchPos: ["VOL"], ovr: 76 },
+            { name: "Rayan", role: "PTD", pitchPos: ["PTD", "SA", "ATA"], ovr: 76 },
+            { name: "Adson", role: "PTE", pitchPos: ["PTE", "PTD", "MC"], ovr: 76 },
+            { name: "David", role: "PTE", pitchPos: ["PTE", "ATA"], ovr: 76 },
+            { name: "Léo Pelé", role: "ZAG", pitchPos: ["ZAG", "LE"], ovr: 75 },
+            { name: "Sforza", role: "VOL", pitchPos: ["VOL", "MC"], ovr: 75 },
+            { name: "Robert Rojas", role: "ZAG/LD", pitchPos: ["ZAG", "LD"], ovr: 75 },
+            { name: "Maicon God of Zaga", role: "ZAG", pitchPos: ["ZAG"], ovr: 75 },
+            { name: "Mateus Carvalho", role: "VOL", pitchPos: ["VOL", "MC"], ovr: 75 },
+            { name: "Álex Teixeira", role: "SA", pitchPos: ["SA", "ATA", "MC"], ovr: 75 },
+            { name: "Keiller", role: "GOL", pitchPos: ["GK"], ovr: 74 },
+            { name: "Pablo Galdames", role: "VOL", pitchPos: ["VOL", "MC"], ovr: 74 },
+            { name: "Emerson Rodríguez", role: "PTD", pitchPos: ["PTD", "PTE"], ovr: 74 },
+            { name: "Rossi", role: "PTD", pitchPos: ["PTD"], ovr: 74 },
+            { name: "Victor Luis", role: "LE", pitchPos: ["LE"], ovr: 73 },
+            { name: "Guilherme Estrella", role: "MC", pitchPos: ["MC", "SA"], ovr: 72 },
+            { name: "JP", role: "MC", pitchPos: ["MC", "VOL"], ovr: 72 },
+            { name: "GB", role: "ATA", pitchPos: ["ATA"], ovr: 71 }
+        ]
+    },
+
+    // --- NÍVEL 2: MEDIANOS E ZEBRAS HISTÓRICAS (NOVOS) ---
+    {
+        name: "Japão 2022", flag: "🇯🇵", tier: 2,
+        players: [
+            { name: "Kaoru Mitoma", role: "PTE", pitchPos: ["PTE", "ME", "MC"], ovr: 83 },
+            { name: "Daichi Kamada", role: "MC", pitchPos: ["MC", "SA"], ovr: 82 },
+            { name: "Wataru Endo", role: "VOL", pitchPos: ["VOL", "ZAG"], ovr: 82 },
+            { name: "Takehiro Tomiyasu", role: "ZAG", pitchPos: ["ZAG", "LD", "LE"], ovr: 81 },
+            { name: "Ritsu Doan", role: "PTD", pitchPos: ["PTD", "MD", "ATA"], ovr: 81 },
+            { name: "Ko Itakura", role: "ZAG", pitchPos: ["ZAG", "VOL"], ovr: 80 },
+            { name: "Hidemasa Morita", role: "VOL", pitchPos: ["VOL", "MC"], ovr: 79 },
+            { name: "Junya Ito", role: "MD", pitchPos: ["MD", "PTD", "LD"], ovr: 79 },
+            { name: "Shuichi Gonda", role: "GOL", pitchPos: ["GK"], ovr: 78 },
+            { name: "Maya Yoshida", role: "ZAG", pitchPos: ["ZAG"], ovr: 77 },
+            { name: "Takuma Asano", role: "ATA", pitchPos: ["ATA", "PTD"], ovr: 77 },
+            { name: "Yuto Nagatomo", role: "LE", pitchPos: ["LE", "ME"], ovr: 76 },
+            { name: "Daizen Maeda", role: "ATA", pitchPos: ["ATA", "PTE"], ovr: 76 }
+        ]
+    },
+    {
+        name: "Marrocos 2022", flag: "🇲🇦", tier: 2,
+        players: [
+            { name: "Achraf Hakimi", role: "LD", pitchPos: ["LD", "MD", "PTD"], ovr: 85 },
+            { name: "Yassine Bounou", role: "GOL", pitchPos: ["GK"], ovr: 85 },
+            { name: "Hakim Ziyech", role: "PTD", pitchPos: ["PTD", "MC", "MD"], ovr: 84 },
+            { name: "Sofyan Amrabat", role: "VOL", pitchPos: ["VOL", "MC"], ovr: 83 },
+            { name: "Nayef Aguerd", role: "ZAG", pitchPos: ["ZAG"], ovr: 82 },
+            { name: "Romain Saïss", role: "ZAG", pitchPos: ["ZAG", "VOL"], ovr: 81 },
+            { name: "Noussair Mazraoui", role: "LE", pitchPos: ["LE", "LD"], ovr: 81 },
+            { name: "Azzedine Ounahi", role: "MC", pitchPos: ["MC", "VOL"], ovr: 80 },
+            { name: "Sofiane Boufal", role: "PTE", pitchPos: ["PTE", "ME", "SA"], ovr: 80 },
+            { name: "Youssef En-Nesyri", role: "ATA", pitchPos: ["ATA"], ovr: 79 },
+            { name: "Selim Amallah", role: "MC", pitchPos: ["MC", "ME"], ovr: 78 }
+        ]
+    },
+    {
+        name: "Costa Rica 2014", flag: "🇨🇷", tier: 2,
+        players: [
+            { name: "Keylor Navas", role: "GOL", pitchPos: ["GK"], ovr: 86 },
+            { name: "Bryan Ruiz", role: "SA", pitchPos: ["SA", "MC", "ATA"], ovr: 81 },
+            { name: "Joel Campbell", role: "ATA", pitchPos: ["ATA", "PTE", "PTD"], ovr: 80 },
+            { name: "Celso Borges", role: "VOL", pitchPos: ["VOL", "MC"], ovr: 78 },
+            { name: "Óscar Duarte", role: "ZAG", pitchPos: ["ZAG"], ovr: 77 },
+            { name: "Giancarlo González", role: "ZAG", pitchPos: ["ZAG"], ovr: 77 },
+            { name: "Cristian Gamboa", role: "LD", pitchPos: ["LD", "MD"], ovr: 76 },
+            { name: "Yeltsin Tejeda", role: "VOL", pitchPos: ["VOL"], ovr: 76 },
+            { name: "Christian Bolaños", role: "ME", pitchPos: ["ME", "PTE"], ovr: 76 },
+            { name: "Júnior Díaz", role: "LE", pitchPos: ["LE", "ME"], ovr: 75 },
+            { name: "Johnny Acosta", role: "ZAG", pitchPos: ["ZAG"], ovr: 74 }
+        ]
+    },
+    {
+        name: "Leicester 2015", flag: "🦊", tier: 2,
+        players: [
+            { name: "Riyad Mahrez", role: "MD/PTD", pitchPos: ["MD", "PTD", "PTE"], ovr: 86 },
+            { name: "N'Golo Kanté", role: "VOL", pitchPos: ["VOL", "MC"], ovr: 85 },
+            { name: "Jamie Vardy", role: "ATA", pitchPos: ["ATA"], ovr: 85 },
+            { name: "Kasper Schmeichel", role: "GOL", pitchPos: ["GK"], ovr: 83 },
+            { name: "Wes Morgan", role: "ZAG", pitchPos: ["ZAG"], ovr: 81 },
+            { name: "Robert Huth", role: "ZAG", pitchPos: ["ZAG"], ovr: 81 },
+            { name: "Christian Fuchs", role: "LE", pitchPos: ["LE", "ME"], ovr: 80 },
+            { name: "Danny Drinkwater", role: "MC", pitchPos: ["MC", "VOL"], ovr: 80 },
+            { name: "Marc Albrighton", role: "ME", pitchPos: ["ME", "PTE"], ovr: 79 },
+            { name: "Shinji Okazaki", role: "SA", pitchPos: ["SA", "ATA", "MC"], ovr: 78 },
+            { name: "Danny Simpson", role: "LD", pitchPos: ["LD"], ovr: 77 }
+        ]
+    },
+    {
+        name: "Grécia 2004", flag: "🇬🇷", tier: 2,
+        players: [
+            { name: "Theodoros Zagorakis", role: "VOL", pitchPos: ["VOL", "MC", "MD"], ovr: 83 },
+            { name: "Angelos Charisteas", role: "ATA", pitchPos: ["ATA"], ovr: 82 },
+            { name: "Traianos Dellas", role: "ZAG", pitchPos: ["ZAG"], ovr: 82 },
+            { name: "Antonios Nikopolidis", role: "GOL", pitchPos: ["GK"], ovr: 81 },
+            { name: "Giorgos Karagounis", role: "MC", pitchPos: ["MC", "ME", "VOL"], ovr: 81 },
+            { name: "Giourkas Seitaridis", role: "LD", pitchPos: ["LD", "MD"], ovr: 80 },
+            { name: "Angelos Basinas", role: "VOL", pitchPos: ["VOL", "MC"], ovr: 80 },
+            { name: "Michalis Kapsis", role: "ZAG", pitchPos: ["ZAG"], ovr: 79 },
+            { name: "Stelios Giannakopoulos", role: "MD", pitchPos: ["MD", "PTD", "SA"], ovr: 79 },
+            { name: "Takis Fyssas", role: "LE", pitchPos: ["LE"], ovr: 77 },
+            { name: "Zisis Vryzas", role: "ATA", pitchPos: ["ATA"], ovr: 76 }
+        ]
+    },
+    {
+        name: "Coreia do Sul 2002", flag: "🇰🇷", tier: 2,
+        players: [
+            { name: "Park Ji-sung", role: "MC/PTE", pitchPos: ["MC", "PTE", "ME", "VOL"], ovr: 84 },
+            { name: "Ahn Jung-hwan", role: "ATA", pitchPos: ["ATA", "SA"], ovr: 81 },
+            { name: "Hong Myung-bo", role: "ZAG", pitchPos: ["ZAG", "VOL"], ovr: 81 },
+            { name: "Yoo Sang-chul", role: "MC", pitchPos: ["MC", "VOL", "ZAG"], ovr: 80 },
+            { name: "Lee Woon-jae", role: "GOL", pitchPos: ["GK"], ovr: 79 },
+            { name: "Kim Nam-il", role: "VOL", pitchPos: ["VOL", "MC"], ovr: 79 },
+            { name: "Lee Young-pyo", role: "LE", pitchPos: ["LE", "ME"], ovr: 79 },
+            { name: "Song Chong-gug", role: "MD", pitchPos: ["MD", "LD"], ovr: 78 },
+            { name: "Seol Ki-hyeon", role: "ATA", pitchPos: ["ATA", "PTD"], ovr: 78 },
+            { name: "Kim Tae-young", role: "ZAG", pitchPos: ["ZAG", "LE"], ovr: 77 },
+            { name: "Choi Jin-cheul", role: "ZAG", pitchPos: ["ZAG"], ovr: 76 }
+        ]
+    },
+    {
+        name: "Ubers (Sistema Snuffy)", flag: "🛡️", tier: 2,
+        players: [
+            { name: "Marc Snuffy", role: "PL", pitchPos: ["ATA", "SA"], ovr: 99 },
+            { name: "Don Lorenzo", role: "VOL/ZAG", pitchPos: ["VOL", "ZAG"], ovr: 96 },
+            { name: "Shoei Barou", role: "PL", pitchPos: ["ATA"], ovr: 92 },
+            { name: "Oliver Aiku", role: "ZAG", pitchPos: ["ZAG"], ovr: 85 },
+            { name: "Ikki Niko", role: "MC", pitchPos: ["MC", "VOL"], ovr: 82 },
+            { name: "Jyubei Aryu", role: "ZAG", pitchPos: ["ZAG"], ovr: 80 },
+            { name: "Shuto Sendou", role: "SA", pitchPos: ["SA", "ATA"], ovr: 77 },
+            { name: "Drago", role: "ME", pitchPos: ["ME", "LE"], ovr: 75 },
+            { name: "Peron", role: "MD", pitchPos: ["MD", "LD"], ovr: 74 },
+            { name: "Abdi", role: "ZAG", pitchPos: ["ZAG"], ovr: 74 },
+            { name: "Gen Fukaku", role: "GOL", pitchPos: ["GK"], ovr: 75 },
+            { name: "Rico", role: "GOL", pitchPos: ["GK"], ovr: 71 },
+            { name: "Speranza", role: "ATA/MC", pitchPos: ["ATA", "MC"], ovr: 72 },
+            { name: "Vito", role: "VOL", pitchPos: ["VOL"], ovr: 70 },
+            { name: "Gallo", role: "ZAG", pitchPos: ["ZAG", "LD", "LE"], ovr: 69 },
+            { name: "Keisuke Wanima", role: "PL", pitchPos: ["ATA"], ovr: 73 },
+            { name: "Taichi Akira", role: "MC", pitchPos: ["MC", "VOL"], ovr: 71 },
+            { name: "Wataru Ishikari", role: "ZAG/ATA", pitchPos: ["ZAG", "ATA"], ovr: 70 },
+            { name: "Kyohei Shigekuma", role: "ZAG", pitchPos: ["ZAG", "VOL"], ovr: 68 }
+        ]
+    },
+    {
+        name: "Manshine City", flag: "🦈", tier: 2,
+        players: [
+            { name: "Chris Prince", role: "PL", pitchPos: ["ATA"], ovr: 99 },
+            { name: "Nagi Seishiro", role: "SA/PL", pitchPos: ["SA", "ATA", "MC"], ovr: 90 },
+            { name: "Chigiri Hyoma", role: "PTE", pitchPos: ["PTE", "ME", "LE", "ATA"], ovr: 90 },
+            { name: "Mikage Reo", role: "MC", pitchPos: ["MC", "ZAG", "VOL", "SA"], ovr: 87 },
+            { name: "Agi", role: "PL", pitchPos: ["ATA"], ovr: 86 },
+            { name: "Revilho", role: "MD", pitchPos: ["MD", "PTD"], ovr: 77 },
+            { name: "Swift", role: "MC", pitchPos: ["MC", "VOL"], ovr: 76 },
+            { name: "Mendes", role: "ZAG", pitchPos: ["ZAG"], ovr: 75 },
+            { name: "Rooney", role: "ZAG", pitchPos: ["ZAG"], ovr: 75 },
+            { name: "Gaten", role: "LD", pitchPos: ["LD"], ovr: 74 },
+            { name: "Blue", role: "GOL", pitchPos: ["GK"], ovr: 74 },
+            { name: "Chambers", role: "ZAG/LD", pitchPos: ["ZAG", "LD"], ovr: 72 },
+            { name: "Beckham", role: "MC", pitchPos: ["MC"], ovr: 71 },
+            { name: "Knight", role: "ATA", pitchPos: ["ATA"], ovr: 71 },
+            { name: "Green", role: "GOL", pitchPos: ["GK"], ovr: 69 },
+            { name: "Junichi Wanima", role: "PL", pitchPos: ["ATA"], ovr: 74 },
+            { name: "Tetsu Sokura", role: "ZAG", pitchPos: ["ZAG", "LD", "LE"], ovr: 72 },
+            { name: "Kitsunezato", role: "ME", pitchPos: ["ME", "MD"], ovr: 70 },
+            { name: "Hiiragi", role: "MC", pitchPos: ["MC"], ovr: 69 }
+        ]
+    },
+    {
+        name: "FC Barcha", flag: "💃", tier: 2,
+        players: [
+            { name: "Lavinho", role: "PL", pitchPos: ["ATA", "PTE", "PTD"], ovr: 99 },
+            { name: "Bachira Meguru", role: "PL/PT", pitchPos: ["ATA", "PTE", "PTD", "ME", "MD"], ovr: 93 },
+            { name: "Otoya Eita", role: "MD/PT", pitchPos: ["MD", "PTD", "ATA"], ovr: 82 },
+            { name: "Lara", role: "MC", pitchPos: ["MC"], ovr: 80 },
+            { name: "Ignacio", role: "ME", pitchPos: ["ME", "PTE"], ovr: 76 },
+            { name: "Bosch", role: "VOL", pitchPos: ["VOL", "MC"], ovr: 75 },
+            { name: "Chapi", role: "ZAG", pitchPos: ["ZAG"], ovr: 75 },
+            { name: "Cabazos", role: "LD", pitchPos: ["LD"], ovr: 74 },
+            { name: "Valdez", role: "LE", pitchPos: ["LE"], ovr: 74 },
+            { name: "Gomez", role: "ZAG", pitchPos: ["ZAG"], ovr: 73 },
+            { name: "Alca", role: "GOL", pitchPos: ["GK"], ovr: 73 },
+            { name: "Xavi", role: "MC", pitchPos: ["MC"], ovr: 72 },
+            { name: "Piqué", role: "ZAG", pitchPos: ["ZAG"], ovr: 71 },
+            { name: "Ini", role: "MC/ATA", pitchPos: ["MC", "ATA"], ovr: 70 },
+            { name: "Neto", role: "GOL", pitchPos: ["GK"], ovr: 68 },
+            { name: "Hayate Haru", role: "VOL", pitchPos: ["VOL", "MC"], ovr: 74 },
+            { name: "Darai Miroku", role: "LE/ZAG", pitchPos: ["LE", "ZAG"], ovr: 73 },
+            { name: "Sokura", role: "ATA", pitchPos: ["ATA"], ovr: 69 },
+            { name: "Wakatsuki", role: "ME/MD", pitchPos: ["ME", "MD", "PTE", "PTD"], ovr: 68 }
+        ]
+    },
+    {
+        name: "Holanda 1974", flag: "🇳🇱", tier: 2,
+        players: [
+            { name: "Johan Cruyff", role: "SA", pitchPos: ["SA", "ATA", "MC"], ovr: 97 },
+            { name: "Johan Neeskens", role: "MC", pitchPos: ["MC", "VOL", "SA"], ovr: 91 },
+            { name: "Ruud Krol", role: "LE", pitchPos: ["LE", "ZAG", "VOL"], ovr: 88 },
+            { name: "Rob Rensenbrink", role: "PTE", pitchPos: ["PTE", "ATA"], ovr: 87 },
+            { name: "Johnny Rep", role: "PTD", pitchPos: ["PTD", "ATA"], ovr: 86 },
+            { name: "Willem van Hanegem", role: "MC", pitchPos: ["MC", "VOL"], ovr: 85 },
+            { name: "Wim Suurbier", role: "LD", pitchPos: ["LD", "ZAG"], ovr: 84 },
+            { name: "Wim Jansen", role: "VOL", pitchPos: ["VOL", "MC", "ZAG"], ovr: 83 },
+            { name: "Arie Haan", role: "ZAG", pitchPos: ["ZAG", "VOL", "MC"], ovr: 83 },
+            { name: "Wim Rijsbergen", role: "ZAG", pitchPos: ["ZAG"], ovr: 81 },
+            { name: "Jan Jongbloed", role: "GOL", pitchPos: ["GK"], ovr: 80 },
+            { name: "Piet Keizer", role: "PTE", pitchPos: ["PTE", "ME"], ovr: 82 },
+            { name: "René van de Kerkhof", role: "MD", pitchPos: ["MD", "PTD"], ovr: 81 },
+            { name: "Willy van de Kerkhof", role: "MC", pitchPos: ["MC", "VOL"], ovr: 81 },
+            { name: "Ruud Geels", role: "ATA", pitchPos: ["ATA"], ovr: 79 }
+        ]
+    },
+
+    // --- NÍVEL 3: POTÊNCIAS DE ELITE ---
+    {
+        name: "PXG", flag: "⚜️", tier: 3,
+        players: [
+            { name: "Julian Loki", role: "PL", pitchPos: ["ATA", "PTD", "PTE"], ovr: 99 },
+            { name: "Itoshi Rin", role: "PL", pitchPos: ["ATA", "SA"], ovr: 95 },
+            { name: "Ryusei Shidou", role: "PL", pitchPos: ["ATA"], ovr: 93 },
+            { name: "Charles Chevalier", role: "MC", pitchPos: ["MC", "ME", "MD"], ovr: 89 },
+            { name: "Tabito Karasu", role: "VOL", pitchPos: ["VOL", "MC"], ovr: 84 },
+            { name: "Eita Otoya", role: "MD/PTD", pitchPos: ["MD", "PTD", "ATA"], ovr: 82 },
+            { name: "Aoshi Tokimitsu", role: "VOL/ZAG", pitchPos: ["VOL", "ZAG", "LD"], ovr: 80 },
+            { name: "Zantetsu Tsurugi", role: "ME/PTE", pitchPos: ["ME", "PTE", "ATA"], ovr: 80 },
+            { name: "Nanase Nijiro", role: "MC/LE", pitchPos: ["MC", "LE", "ME"], ovr: 79 },
+            { name: "Chou", role: "ZAG", pitchPos: ["ZAG"], ovr: 76 },
+            { name: "Marnier", role: "GOL", pitchPos: ["GK"], ovr: 75 },
+            { name: "Yoyo", role: "ATA/PT", pitchPos: ["ATA", "PTE", "PTD"], ovr: 75 },
+            { name: "Pino", role: "ZAG", pitchPos: ["ZAG"], ovr: 74 },
+            { name: "Giraud", role: "MC", pitchPos: ["MC"], ovr: 73 },
+            { name: "Serafim", role: "LE", pitchPos: ["LE", "ZAG"], ovr: 72 },
+            { name: "Dumont", role: "GOL", pitchPos: ["GK"], ovr: 70 },
+            { name: "Kyohei Tanaka", role: "ATA", pitchPos: ["ATA", "ME"], ovr: 72 },
+            { name: "Shiguma", role: "ZAG", pitchPos: ["ZAG"], ovr: 70 },
+            { name: "Hiromu Akira", role: "MC", pitchPos: ["MC", "VOL"], ovr: 69 }
+        ]
+    },
+    {
+        name: "Internazzionale", flag: "🔵⚫", tier: 3,
+        players: [
+            { name: "Wesley Sneijder", role: "MC", pitchPos: ["MC", "SA"], ovr: 89 },
+            { name: "Samuel Eto'o", role: "PTE/ATA", pitchPos: ["PTE", "ATA"], ovr: 89 },
+            { name: "Diego Milito", role: "ATA", pitchPos: ["ATA"], ovr: 89 },
+            { name: "Júlio César", role: "GOL", pitchPos: ["GK"], ovr: 88 },
+            { name: "Maicon", role: "LD", pitchPos: ["LD", "MD"], ovr: 88 },
+            { name: "Lúcio", role: "ZAG", pitchPos: ["ZAG"], ovr: 87 },
+            { name: "Javier Zanetti", role: "VOL/LE", pitchPos: ["VOL", "LE", "MC", "LD"], ovr: 87 },
+            { name: "Walter Samuel", role: "ZAG", pitchPos: ["ZAG"], ovr: 86 },
+            { name: "Esteban Cambiasso", role: "VOL", pitchPos: ["VOL", "MC"], ovr: 86 },
+            { name: "Cristian Chivu", role: "LE", pitchPos: ["LE", "ZAG"], ovr: 85 },
+            { name: "Dejan Stanković", role: "MC", pitchPos: ["MC", "VOL"], ovr: 85 },
+            { name: "Goran Pandev", role: "PTD", pitchPos: ["PTD", "SA", "ATA"], ovr: 84 },
+            { name: "Mario Balotelli", role: "ATA", pitchPos: ["ATA", "PTE"], ovr: 84 },
+            { name: "Iván Córdoba", role: "ZAG", pitchPos: ["ZAG", "LD"], ovr: 83 },
+            { name: "Sulley Muntari", role: "VOL", pitchPos: ["VOL"], ovr: 82 }
+        ]
+    },
+    {
+        name: "França 1998", flag: "🇫🇷", tier: 3,
+        players: [
+            { name: "Zinedine Zidane", role: "MC", pitchPos: ["MC", "SA"], ovr: 96 },
+            { name: "Thierry Henry", role: "ATA", pitchPos: ["ATA", "PTE", "PTD"], ovr: 91 },
+            { name: "Marcel Desailly", role: "ZAG", pitchPos: ["ZAG", "VOL"], ovr: 90 },
+            { name: "Lilian Thuram", role: "LD", pitchPos: ["LD", "ZAG"], ovr: 89 },
+            { name: "Laurent Blanc", role: "ZAG", pitchPos: ["ZAG"], ovr: 88 },
+            { name: "Patrick Vieira", role: "VOL", pitchPos: ["VOL", "MC"], ovr: 88 },
+            { name: "Didier Deschamps", role: "VOL", pitchPos: ["VOL", "MC"], ovr: 87 },
+            { name: "Fabien Barthez", role: "GOL", pitchPos: ["GK"], ovr: 86 },
+            { name: "Bixente Lizarazu", role: "LE", pitchPos: ["LE", "ME"], ovr: 86 },
+            { name: "Youri Djorkaeff", role: "SA", pitchPos: ["SA", "MC", "ATA"], ovr: 85 },
+            { name: "Emmanuel Petit", role: "VOL", pitchPos: ["VOL", "MC", "LE"], ovr: 84 },
+            { name: "David Trezeguet", role: "ATA", pitchPos: ["ATA"], ovr: 84 },
+            { name: "Robert Pirès", role: "ME", pitchPos: ["ME", "PTE"], ovr: 83 },
+            { name: "Christian Karembeu", role: "MC", pitchPos: ["MC", "VOL", "LD"], ovr: 81 },
+            { name: "Stéphane Guivarc'h", role: "ATA", pitchPos: ["ATA"], ovr: 77 }
+        ]
+    },
+    {
+        name: "Itália 2006", flag: "🇮🇹", tier: 3,
+        players: [
+            { name: "Gianluigi Buffon", role: "GOL", pitchPos: ["GK"], ovr: 95 },
+            { name: "Fabio Cannavaro", role: "ZAG", pitchPos: ["ZAG"], ovr: 94 },
+            { name: "Andrea Pirlo", role: "VOL", pitchPos: ["VOL", "MC"], ovr: 93 },
+            { name: "Francesco Totti", role: "SA", pitchPos: ["SA", "MC", "ATA"], ovr: 91 },
+            { name: "Alessandro Nesta", role: "ZAG", pitchPos: ["ZAG"], ovr: 90 },
+            { name: "Gennaro Gattuso", role: "VOL", pitchPos: ["VOL", "MC"], ovr: 89 },
+            { name: "Gianluca Zambrotta", role: "LD", pitchPos: ["LD", "LE", "MD", "ME"], ovr: 88 },
+            { name: "Fabio Grosso", role: "LE", pitchPos: ["LE", "ME"], ovr: 86 },
+            { name: "Alessandro Del Piero", role: "SA", pitchPos: ["SA", "ATA", "PTE"], ovr: 87 },
+            { name: "Marco Materazzi", role: "ZAG", pitchPos: ["ZAG"], ovr: 85 },
+            { name: "Daniele De Rossi", role: "VOL", pitchPos: ["VOL", "MC"], ovr: 85 },
+            { name: "Luca Toni", role: "ATA", pitchPos: ["ATA"], ovr: 85 },
+            { name: "Mauro Camoranesi", role: "MD", pitchPos: ["MD", "PTD"], ovr: 84 },
+            { name: "Filippo Inzaghi", role: "ATA", pitchPos: ["ATA"], ovr: 84 },
+            { name: "Simone Perrotta", role: "MC", pitchPos: ["MC", "ME"], ovr: 82 }
+        ]
+    },
+
+    // --- NÍVEL 4: ESQUADRÕES LENDÁRIOS ---
+    {
+        name: "Bastard München", flag: "⚔️", tier: 4,
+        players: [
+            { name: "Noel Noa", role: "PL", pitchPos: ["ATA"], ovr: 99 },
+            { name: "Michael Kaiser", role: "PL", pitchPos: ["ATA"], ovr: 95 },
+            { name: "Yoichi Isagi", role: "PL/SA", pitchPos: ["ATA", "SA", "MC"], ovr: 94 },
+            { name: "Rensuke Kunigami", role: "PL", pitchPos: ["ATA"], ovr: 91 },
+            { name: "Alexis Ness", role: "MC", pitchPos: ["MC", "ME", "MD"], ovr: 85 },
+            { name: "Yo Hiori", role: "MC", pitchPos: ["MC", "VOL", "LD"], ovr: 84 },
+            { name: "Kenyu Yukimiya", role: "LE/PTE", pitchPos: ["LE", "PTE", "ME"], ovr: 84 },
+            { name: "Ranze Kurona", role: "LD", pitchPos: ["LD", "MD"], ovr: 81 },
+            { name: "Jingo Raichi", role: "VOL", pitchPos: ["VOL", "ZAG"], ovr: 81 },
+            { name: "Jin Kiyora", role: "MC", pitchPos: ["MC", "LD"], ovr: 80 },
+            { name: "Gin Gagamaru", role: "GOL", pitchPos: ["GK"], ovr: 92 },
+            { name: "Benedict Grim", role: "PTD", pitchPos: ["PTD", "MD"], ovr: 79 },
+            { name: "Erik Gesner", role: "PTE", pitchPos: ["PTE", "ME"], ovr: 77 },
+            { name: "Mensah", role: "ZAG", pitchPos: ["ZAG"], ovr: 76 },
+            { name: "Birkenstock", role: "ZAG", pitchPos: ["ZAG"], ovr: 75 },
+            { name: "Igor Schneider", role: "VOL/LD", pitchPos: ["VOL", "LD"], ovr: 74 },
+            { name: "Ali", role: "MC", pitchPos: ["MC"], ovr: 73 },
+            { name: "Theo Sachs", role: "LE", pitchPos: ["LE", "ZAG"], ovr: 72 },
+            { name: "Ndiaye", role: "ZAG", pitchPos: ["ZAG"], ovr: 71 },
+            { name: "Bachman", role: "GOL", pitchPos: ["GK"], ovr: 70 },
+            { name: "Gurimu Igarashi", role: "VOL", pitchPos: ["VOL"], ovr: 75 },
+            { name: "Teppei Neru", role: "LD/ZAG", pitchPos: ["LD", "ZAG"], ovr: 74 }
+        ]
+    },
+    {
+        name: "São Paulo Perfeito", flag: "🔴⚪⚫", tier: 4,
+        players: [
+            { name: "Rogério Ceni", role: "GOL", pitchPos: ["GK"], ovr: 92 },
+            { name: "Cafu", role: "LD", pitchPos: ["LD", "MD", "PTD"], ovr: 88 },
+            { name: "Careca", role: "ATA", pitchPos: ["ATA"], ovr: 88 },
+            { name: "Leonardo", role: "LE", pitchPos: ["LE", "ME", "MC"], ovr: 87 },
+            { name: "Müller", role: "SA", pitchPos: ["SA", "ATA", "PTE", "PTD"], ovr: 87 },
+            { name: "Kaká", role: "MC", pitchPos: ["MC", "SA", "ATA"], ovr: 87 },
+            { name: "Miranda", role: "ZAG", pitchPos: ["ZAG", "LD"], ovr: 86 },
+            { name: "Danilo", role: "MC", pitchPos: ["MC", "ME"], ovr: 86 },
+            { name: "Diego Lugano", role: "ZAG", pitchPos: ["ZAG"], ovr: 85 },
+            { name: "Josué", role: "VOL", pitchPos: ["VOL", "MC"], ovr: 85 },
+            { name: "Mineiro", role: "VOL", pitchPos: ["VOL", "MC"], ovr: 85 },
+            { name: "Zetti", role: "GOL", pitchPos: ["GK"], ovr: 85 },
+            { name: "Hernanes", role: "MC", pitchPos: ["MC", "VOL", "SA"], ovr: 85 },
+            { name: "Amoroso", role: "ATA", pitchPos: ["ATA", "SA"], ovr: 85 },
+            { name: "Ronaldão", role: "ZAG", pitchPos: ["ZAG", "LE"], ovr: 84 },
+            { name: "Cicinho", role: "LD", pitchPos: ["LD", "MD"], ovr: 84 },
+            { name: "Fabão", role: "ZAG", pitchPos: ["ZAG"], ovr: 82 },
+            { name: "Aloísio Chulapa", role: "ATA", pitchPos: ["ATA"], ovr: 81 }
+        ]
+    },
+    {
+        name: "Espanha 2010", flag: "🇪🇸", tier: 4,
+        players: [
+            { name: "Andrés Iniesta", role: "MC", pitchPos: ["MC", "PTE", "SA"], ovr: 95 },
+            { name: "Xavi Hernández", role: "MC", pitchPos: ["MC", "VOL"], ovr: 94 },
+            { name: "Iker Casillas", role: "GOL", pitchPos: ["GK"], ovr: 93 },
+            { name: "Carles Puyol", role: "ZAG", pitchPos: ["ZAG", "LD"], ovr: 91 },
+            { name: "David Villa", role: "ATA", pitchPos: ["ATA", "PTE"], ovr: 91 },
+            { name: "Sergio Ramos", role: "LD", pitchPos: ["LD", "ZAG"], ovr: 90 },
+            { name: "Xabi Alonso", role: "VOL", pitchPos: ["VOL", "MC"], ovr: 89 },
+            { name: "Gerard Piqué", role: "ZAG", pitchPos: ["ZAG"], ovr: 88 },
+            { name: "Sergio Busquets", role: "VOL", pitchPos: ["VOL", "MC"], ovr: 88 },
+            { name: "Cesc Fàbregas", role: "MC", pitchPos: ["MC", "SA", "ATA"], ovr: 87 },
+            { name: "David Silva", role: "ME", pitchPos: ["ME", "PTE", "MC", "MD"], ovr: 86 },
+            { name: "Fernando Torres", role: "ATA", pitchPos: ["ATA"], ovr: 86 },
+            { name: "Joan Capdevila", role: "LE", pitchPos: ["LE"], ovr: 84 },
+            { name: "Pedro", role: "PTD", pitchPos: ["PTD", "PTE", "ATA"], ovr: 84 },
+            { name: "Jesús Navas", role: "MD", pitchPos: ["MD", "PTD"], ovr: 83 },
+            { name: "Carlos Marchena", role: "ZAG", pitchPos: ["ZAG", "VOL"], ovr: 82 }
+        ]
+    },
+    {
+        name: "Brasil 1970", flag: "🇧🇷", tier: 4,
+        players: [
+            { name: "Pelé", role: "SA", pitchPos: ["SA", "ATA", "MC"], ovr: 99 },
+            { name: "Carlos Alberto Torres", role: "LD", pitchPos: ["LD", "MD", "ZAG"], ovr: 94 },
+            { name: "Jairzinho", role: "PTD", pitchPos: ["PTD", "ATA"], ovr: 93 },
+            { name: "Rivellino", role: "PTE", pitchPos: ["PTE", "ME", "MC"], ovr: 92 },
+            { name: "Gérson", role: "MC", pitchPos: ["MC", "VOL"], ovr: 91 },
+            { name: "Tostão", role: "ATA", pitchPos: ["ATA", "SA"], ovr: 90 },
+            { name: "Clodoaldo", role: "VOL", pitchPos: ["VOL", "MC"], ovr: 88 },
+            { name: "Piazza", role: "ZAG", pitchPos: ["ZAG", "VOL"], ovr: 86 },
+            { name: "Brito", role: "ZAG", pitchPos: ["ZAG"], ovr: 84 },
+            { name: "Everaldo", role: "LE", pitchPos: ["LE"], ovr: 83 },
+            { name: "Félix", role: "GOL", pitchPos: ["GK"], ovr: 82 },
+            { name: "Paulo César Caju", role: "PTE", pitchPos: ["PTE", "ME", "MC"], ovr: 85 },
+            { name: "Edu", role: "PTE", pitchPos: ["PTE", "ATA"], ovr: 84 },
+            { name: "Roberto Miranda", role: "ATA", pitchPos: ["ATA"], ovr: 82 }
+        ]
+    },
+    {
+        name: "Argentina 2022", flag: "🇦🇷", tier: 4,
+        players: [
+            { name: "Lionel Messi", role: "SA", pitchPos: ["SA", "PTD", "ATA", "MC"], ovr: 97 },
+            { name: "Emiliano Martínez", role: "GOL", pitchPos: ["GK"], ovr: 89 },
+            { name: "Ángel Di María", role: "PTE", pitchPos: ["PTE", "PTD", "ME"], ovr: 88 },
+            { name: "Enzo Fernández", role: "MC", pitchPos: ["MC", "VOL"], ovr: 87 },
+            { name: "Julián Álvarez", role: "ATA", pitchPos: ["ATA", "PTE", "PTD"], ovr: 87 },
+            { name: "Cristian Romero", role: "ZAG", pitchPos: ["ZAG"], ovr: 86 },
+            { name: "Rodrigo De Paul", role: "MC", pitchPos: ["MC", "MD", "VOL"], ovr: 86 },
+            { name: "Alexis Mac Allister", role: "MC", pitchPos: ["MC", "ME", "VOL"], ovr: 86 },
+            { name: "Nicolás Otamendi", role: "ZAG", pitchPos: ["ZAG"], ovr: 85 },
+            { name: "Lisandro Martínez", role: "ZAG", pitchPos: ["ZAG", "LE", "VOL"], ovr: 85 },
+            { name: "Nahuel Molina", role: "LD", pitchPos: ["LD", "MD"], ovr: 83 },
+            { name: "Nicolás Tagliafico", role: "LE", pitchPos: ["LE", "ZAG"], ovr: 82 },
+            { name: "Marcos Acuña", role: "LE", pitchPos: ["LE", "ME"], ovr: 82 },
+            { name: "Leandro Paredes", role: "VOL", pitchPos: ["VOL", "MC"], ovr: 82 },
+            { name: "Lautaro Martínez", role: "ATA", pitchPos: ["ATA"], ovr: 84 },
+            { name: "Paulo Dybala", role: "SA", pitchPos: ["SA", "ATA", "MC"], ovr: 84 }
+        ]
+    },
+
+    // --- NÍVEL 5: OS CHEFÕES FINAIS (O DESAFIO) ---
+    {
+        name: "PDL", flag: "🔥", tier: 5,
+        players: [
+            { name: "Igor Yuki", role: "ATA", pitchPos: ["ATA"], ovr: 95 },
+            { name: "Guga", role: "ALL", pitchPos: ["ALL"], ovr: 76 },
+            { name: "BK", role: "PT", pitchPos: ["PTE", "PTD"], ovr: 78 },
+            { name: "Two", role: "PT", pitchPos: ["PTE", "PTD"], ovr: 70 },
+            { name: "Fox", role: "PTD", pitchPos: ["PTD"], ovr: 90 },
+            { name: "Biel", role: "ATA/MC", pitchPos: ["ATA", "MC", "PTE", "PTD"], ovr: 99 },
+            { name: "Himura", role: "ATA", pitchPos: ["ATA"], ovr: 85 },
+            { name: "Donnut", role: "ATA", pitchPos: ["ATA"], ovr: 80 },
+            { name: "Black", role: "PTD/MC", pitchPos: ["PTD", "MC"], ovr: 83 },
+            { name: "Izaque", role: "MC", pitchPos: ["MC"], ovr: 62 },
+            { name: "Lazy", role: "MC", pitchPos: ["MC"], ovr: 75 },
+            { name: "Ronyyy", role: "ZAG/PT", pitchPos: ["ZAG", "LE", "PTE", "PTD"], ovr: 95 },
+            { name: "Chico", role: "ZAG", pitchPos: ["ZAG"], ovr: 60 },
+            { name: "Chin", role: "LD", pitchPos: ["LD"], ovr: 59 },
+            { name: "Lilito", role: "GK", pitchPos: ["GK"], ovr: 76 },
+            { name: "Ticole", role: "GK", pitchPos: ["GK"], ovr: 2 }
+        ]
+    },
+    {
+        name: "Alemanha 2014", flag: "🇩🇪", tier: 5,
+        players: [
+            { name: "Manuel Neuer", role: "GOL", pitchPos: ["GK"], ovr: 96 },
+            { name: "Philipp Lahm", role: "LD", pitchPos: ["LD", "VOL", "MC", "LE"], ovr: 94 },
+            { name: "Bastian Schweinsteiger", role: "VOL", pitchPos: ["VOL", "MC"], ovr: 93 },
+            { name: "Toni Kroos", role: "MC", pitchPos: ["MC", "VOL", "SA"], ovr: 92 },
+            { name: "Thomas Müller", role: "SA", pitchPos: ["SA", "PTD", "ATA"], ovr: 91 },
+            { name: "Mats Hummels", role: "ZAG", pitchPos: ["ZAG"], ovr: 90 },
+            { name: "Jérôme Boateng", role: "ZAG", pitchPos: ["ZAG", "LD"], ovr: 89 },
+            { name: "Mesut Özil", role: "MC", pitchPos: ["MC", "PTE", "SA"], ovr: 89 },
+            { name: "Sami Khedira", role: "VOL", pitchPos: ["VOL", "MC"], ovr: 87 },
+            { name: "Miroslav Klose", role: "ATA", pitchPos: ["ATA"], ovr: 87 },
+            { name: "Mario Götze", role: "SA", pitchPos: ["SA", "MC", "ATA", "PTE"], ovr: 86 },
+            { name: "Benedikt Höwedes", role: "LE", pitchPos: ["LE", "ZAG", "LD"], ovr: 84 },
+            { name: "Per Mertesacker", role: "ZAG", pitchPos: ["ZAG"], ovr: 84 },
+            { name: "André Schürrle", role: "PTE", pitchPos: ["PTE", "ATA", "PTD"], ovr: 84 },
+            { name: "Julian Draxler", role: "ME", pitchPos: ["ME", "PTE", "MC"], ovr: 83 },
+            { name: "Christoph Kramer", role: "VOL", pitchPos: ["VOL", "MC"], ovr: 82 },
+            { name: "Roman Weidenfeller", role: "GOL", pitchPos: ["GK"], ovr: 83 }
+        ]
+    },
+    {
+        name: "Brasil 2002", flag: "🇧🇷", tier: 5,
+        players: [
+            { name: "Ronaldo Fenômeno", role: "ATA", pitchPos: ["ATA"], ovr: 98 },
+            { name: "Ronaldinho Gaúcho", role: "SA", pitchPos: ["SA", "PTE", "MC", "ATA"], ovr: 96 },
+            { name: "Rivaldo", role: "SA", pitchPos: ["SA", "MC", "ATA", "PTE"], ovr: 95 },
+            { name: "Roberto Carlos", role: "LE", pitchPos: ["LE", "ME"], ovr: 94 },
+            { name: "Cafu", role: "LD", pitchPos: ["LD", "MD"], ovr: 93 },
+            { name: "Lúcio", role: "ZAG", pitchPos: ["ZAG"], ovr: 90 },
+            { name: "Marcos", role: "GOL", pitchPos: ["GK"], ovr: 89 },
+            { name: "Gilberto Silva", role: "VOL", pitchPos: ["VOL", "ZAG"], ovr: 88 },
+            { name: "Edmílson", role: "ZAG", pitchPos: ["ZAG", "VOL"], ovr: 87 },
+            { name: "Roque Júnior", role: "ZAG", pitchPos: ["ZAG"], ovr: 86 },
+            { name: "Kléberson", role: "MC", pitchPos: ["MC", "VOL", "MD"], ovr: 85 },
+            { name: "Dida", role: "GOL", pitchPos: ["GK"], ovr: 88 },
+            { name: "Kaká", role: "MC", pitchPos: ["MC", "SA", "ATA"], ovr: 86 },
+            { name: "Vampeta", role: "VOL", pitchPos: ["VOL", "MC"], ovr: 83 },
+            { name: "Juninho Paulista", role: "MC", pitchPos: ["MC", "SA"], ovr: 85 },
+            { name: "Denílson", role: "PTE", pitchPos: ["PTE", "ME"], ovr: 85 },
+            { name: "Luizão", role: "ATA", pitchPos: ["ATA"], ovr: 83 },
+            { name: "Belletti", role: "LD", pitchPos: ["LD", "MD"], ovr: 82 }
+        ]
+    }
+];
